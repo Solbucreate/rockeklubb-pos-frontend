@@ -1,5 +1,5 @@
 // Rockeklubben POS – Admin Panel
-const API = "https://rockeklubb-pos-backend-xhe6.onrender.com/api";
+const API = "https://rockeklubb-pos-backend-xhe6.onrender.com";
 
 // krev innlogging
 if (sessionStorage.getItem("loggedIn") !== "true") {
