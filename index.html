@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Larvik Rockeklubb • POS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div id="fullLogin" class="full-login">
+  <div class="full-login-box">
+    <h2>Larvik Rockeklubb</h2>
+    <h2>Logg Inn</h2>
+
+    <input id="fullLoginUser" type="text" placeholder="Brukernavn" autofocus required>
+    <input id="fullLoginPass" type="password" placeholder="Passord" required>
+
+    <button id="fullLoginBtn" class="btn primary">Logg inn</button>
+
+    <p id="fullLoginError" class="error-text" style="display:none;">
+      Feil brukernavn eller passord
+    </p>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="center">
+    <img class="logo_mid" src="assets/logo_midt.png">
+  </div>
+  <div class="right" style="display:flex; gap:10px;">
+  <button id="logoutBtn" class="btn subtle">Logg ut</button>
+  <a href="admin.html" class="btn subtle">Admin</a>
+</div>
+
+</header>
+
+<main class="layout">
+  <section class="products">
+    <nav class="tabs" id="tabs"></nav>
+    <div id="productList" class="product-list"></div>
+  </section>
+
+  <aside class="checkout">
+    <div class="co-header">
+      <h3>Klar for salg</h3>
+      <button id="clearBtn" class="btn subtle">Nullstill</button>
+    </div>
+
+    <div id="lines" class="lines"></div>
+
+    <div class="total">
+      <span>Sum</span><strong id="sumNok">0 kr</strong>
+    </div>
+
+    <div class="pay">
+      <button data-pay="Kort" class="btn primary">Kort / Terminal</button>
+      <button data-pay="Vipps" class="btn accent">Vipps</button>
+      <button data-pay="Kontant" class="btn">Kontant</button>
+    </div>
+
+    <div class="report">
+      <button id="todayReport" class="btn subtle">Dagens tall</button>
+      <div id="reportBox" class="report-box" hidden></div>
+    </div>
+  </aside>
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

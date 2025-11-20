@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Larvik Rockeklubb • Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="admin-layout">
+<header class="topbar">
+  <div class="center">
+    <img class="logo_mid" src="assets/logo_midt.png" alt="Larvik Rockeklubb">
+  </div>
+  <div class="right">
+    <a href="index.html" class="btn subtle">Til kassa</a>
+  </div>
+</header>
+
+<main class="admin-main">
+  <!-- VENSTRE: PRODUKT-SKJEMA -->
+  <section class="card">
+    <h3>Produkt</h3>
+    <form id="productForm">
+      <input type="hidden" id="prodId" />
+
+      <label>Navn
+        <input id="prodName" required />
+      </label>
+
+      <label>Kategori
+        <select id="prodCategory" required>
+          <option value="Bar">Bar</option>
+          <option value="Billetter">Billetter</option>
+          <option value="Merch">Merch</option>
+          <option value="Medlemskap">Medlemskap</option>
+        </select>
+      </label>
+
+      <label>Innkjøpspris (NOK)
+        <input id="prodCost" type="number" min="0" step="0.01" />
+      </label>
+
+      <label>Salgspris (NOK)
+        <input id="prodPrice" type="number" min="0" step="0.01" required />
+      </label>
+
+      <label>Lager
+        <input id="prodStock" type="number" min="0" />
+      </label>
+
+      <div style="display:flex; gap:8px; margin-top:6px;">
+        <button type="submit" class="btn primary">Lagre</button>
+        <button type="button" id="newBtn" class="btn subtle">Nytt produkt</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- HØYRE: PRODUKTLISTE -->
+  <section class="card">
+    <h3>Produkter</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Navn</th>
+          <th>Kategori</th>
+          <th>Innkjøp</th>
+          <th>Pris</th>
+          <th>Lager</th>
+          <th>Handling</th>
+        </tr>
+      </thead>
+      <tbody id="prodRows"></tbody>
+    </table>
+  </section>
+</main>
+
+<!-- ENDRING AV EKSISTERENDE BRUKER -->
+<section class="card" style="margin:20px;">
+  <h2>Endre brukerkonto</h2>
+  <div class="editUserBox" style="margin:10px 0;">
+    <input id="userId" type="number" placeholder="Bruker-ID (ofte 1)" style="display:block; margin-bottom:10px; width:200px;">
+    <input id="newUser" type="text" placeholder="Nytt brukernavn" style="display:block; margin-bottom:10px; width:200px;">
+    <input id="newPass" type="password" placeholder="Nytt passord (valgfritt)" style="display:block; margin-bottom:10px; width:200px;">
+    <button id="updateUserBtn" class="btn">Oppdater</button>
+  </div>
+</section>
+
+<!-- BRUKERADMIN -->
+<section class="card" style="margin:20px;">
+  <h2>Brukeradministrasjon</h2>
+
+  <h3>Legg til ny bruker</h3>
+  <input id="newUserName" type="text" placeholder="Brukernavn" style="display:block; margin-bottom:8px; width:200px;">
+  <input id="newUserPass" type="password" placeholder="Passord" style="display:block; margin-bottom:8px; width:200px;">
+
+  <select id="newUserRole" style="display:block; margin-bottom:10px; width:210px;">
+    <option value="kasse">Kasse</option>
+    <option value="admin">Admin</option>
+  </select>
+
+  <button id="createUserBtn" class="btn">Opprett bruker</button>
+
+  <hr style="margin:20px 0; border-color:#444;">
+
+  <h3>Eksisterende brukere</h3>
+  <div id="userList"></div>
+</section>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
