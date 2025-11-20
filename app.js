@@ -1,6 +1,5 @@
 // Rockeklubben POS frontend
-const API = "https://rockeklubb-pos-backend-xhe6.onrender.com/api";
-
+const API = "https://rockeklubb-pos-backend-xhe6.onrender.com";
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
